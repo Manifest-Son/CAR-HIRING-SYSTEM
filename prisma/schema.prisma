@@ -12,3 +12,76 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Users{
+  userId String @id @default(uuid())
+  firstname String 
+  lastname String
+  email String
+  password String
+  userImg String
+  CreatedAt DateTime
+  UpdatedAt DateTime
+}
+
+model Drivers{
+  driverId String @id @default(uuid())
+  firstname String
+  lastname String
+  email String
+  phoneno Int
+  driverImg String
+  CreatedAt DateTime
+  UpdatedAt DateTime
+}
+
+model Booking{
+  bookId String @id @default(uuid())
+  bookVehicle String
+  bookPrice String
+  bookUser String
+  CreatedAt DateTime
+  UpdatedAt DateTime
+}
+
+model Categories{
+  catId String @id @default(uuid())
+  catName String
+  catDescription String
+  catPrice Float
+  CreatedAt DateTime
+  UpdatedAt DateTime
+}
+
+model Payment{
+  payId String @id @default(uuid())
+  payMethod String
+  payConfirmation String
+  payCancelation String
+  userPay Float
+  CreatedAt DateTime
+  UpdatedAt DateTime
+}
+
+model Vehicle{
+  vehId String @id @default(uuid())
+  vehName String
+  vehImg String
+  vehCategory String
+  vehStatus Boolean
+  vehPrice Float
+  CreatedAt DateTime
+  UpdatedAt DateTime
+}
+
+model Inquiry{
+  inqId String @id @default(uuid())
+  firstname String
+  lastname String
+  phoneNo Int
+  email String
+  hire String
+  date DateTime @db.Date
+  CreatedAt DateTime
+  UpdatedAt DateTime
+}

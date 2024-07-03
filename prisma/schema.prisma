@@ -15,73 +15,73 @@ datasource db {
 
 model Users{
   userId String @id @default(uuid())
-  firstname String 
-  lastname String
+  firstname String @map("first_name")
+  lastname String @map("last_name")
   email String
   password String
-  userImg String
-  CreatedAt DateTime
-  UpdatedAt DateTime
+  userImg String @map("profile_img")
+  CreatedAt DateTime @default(now())
+  UpdatedAt DateTime @updatedAt
 }
 
 model Drivers{
   driverId String @id @default(uuid())
-  firstname String
-  lastname String
+  firstname String @map("first_name")
+  lastname String @map("last_name")
   email String
   phoneno Int
-  driverImg String
-  CreatedAt DateTime
-  UpdatedAt DateTime
+  driverImg String @map("driver_img")
+  CreatedAt DateTime @default(now())
+  UpdatedAt DateTime @updatedAt
 }
 
 model Booking{
   bookId String @id @default(uuid())
-  bookVehicle String
-  bookPrice String
-  bookUser String
-  CreatedAt DateTime
-  UpdatedAt DateTime
+  bookVehicle String @map("vehicle_booking")
+  bookPrice String @map("booking_price")
+  bookUser String @map("user_booking")
+  CreatedAt DateTime @default(now())
+  UpdatedAt DateTime @updatedAt
 }
 
 model Categories{
   catId String @id @default(uuid())
-  catName String
-  catDescription String
-  catPrice Float
-  CreatedAt DateTime
-  UpdatedAt DateTime
+  catName String @map("category_name")
+  catDescription String @map("category_description")
+  catPrice Float @map("category_price")
+  CreatedAt DateTime @default(now())
+  UpdatedAt DateTime @updatedAt
 }
 
 model Payment{
   payId String @id @default(uuid())
-  payMethod String
-  payConfirmation String
-  payCancelation String
-  userPay Float
-  CreatedAt DateTime
-  UpdatedAt DateTime
+  payMethod String @map("payment_method")
+  payConfirmation String @map("payment_details")
+  payCancelation String @map("payment_cancel")
+  userPay Float @map("user_payment")
+  CreatedAt DateTime @default(now())
+  UpdatedAt DateTime @updatedAt
 }
 
 model Vehicle{
   vehId String @id @default(uuid())
-  vehName String
-  vehImg String
-  vehCategory String
-  vehStatus Boolean
-  vehPrice Float
-  CreatedAt DateTime
-  UpdatedAt DateTime
+  vehName String @map("vehicle_inquiry")
+  vehImg String @map("vehicle_img")
+  vehCategory String @map("vehicle_category")
+  vehStatus Boolean @map("availability")
+  vehPrice Float @map("hire_price")
+  CreatedAt DateTime @default(now())
+  UpdatedAt DateTime @updatedAt
 }
 
 model Inquiry{
   inqId String @id @default(uuid())
-  firstname String
-  lastname String
-  phoneNo Int
-  email String
+  firstname String @map("first_name")
+  lastname String @map("last_name")
+  phoneNo Int @map("phone_no")
+  email String 
   hire String
   date DateTime @db.Date
-  CreatedAt DateTime
-  UpdatedAt DateTime
+  CreatedAt DateTime @default(now())
+  UpdatedAt DateTime @updatedAt
 }
